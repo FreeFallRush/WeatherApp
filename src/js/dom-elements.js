@@ -36,6 +36,65 @@ const domElements = (() => {
     day.textContent = currDay;
     date.textContent = currentDate;
     time.textContent = localTime;
+
+    const roundedTempC = Math.round(weather.current.temp_c);
+    const roundedTempF = Math.round(weather.current.temp_f);
+    currentTemp.textContent = `${roundedTempC}°C`;
+
+    currentImg.src = `https://${weather.current.condition.icon}`;
+    currentImg.alt = "weather-icon";
+
+    const moonPhaseText = weather.forecast.forecastday[0].astro.moon_phase;
+    moonPhase.textContent = moonPhaseText;
+    moonImg.src = getMoonPhaseImg(moonPhaseText);
+    moonImg.alt = `moon phase ${moonPhaseText} icon`;
+
+    const roundedFeelsLikeC = Math.round(weather.current.feelslike_c);
+    const roundedFeelsLikeF = Math.round(weather.current.feelslike_f);
+    feelsLikeDegrees.textContent = `Feels like: ${roundedFeelsLikeC}°C`;
+    descriptiveText.textContent = weather.current.condition.text;
+
+    switchUnitBtn.addEventListener("click", () => {
+      if (switchUnitBtn.checked === true) {
+        currentTemp.textContent = `${roundedTempF}°F`;
+        feelsLikeDegrees.textContent = `Feels like: ${roundedFeelsLikeF}°F`;
+      } else if (switchUnitBtn.checked === false) {
+        currentTemp.textContent = `${roundedTempC}°C`;
+        feelsLikeDegrees.textContent = `Feels like: ${roundedFeelsLikeC}°C`;
+      }
+    });
+
+    const lastUpdatedDateTime = weather.current.last_updated;
+    console.log(lastUpdatedDateTime);
+    const [lastUpdatedDate, lastUpdatedTime] = lastUpdatedDateTime.split(" ");
+
+    const formattedlastUpdated = format(
+      new Date(lastUpdatedDate),
+      "do MMM yyyy"
+    );
+    lastUpdate.textContent = `Last Updated on: ${formattedlastUpdated}  @ ${lastUpdatedTime}`;
+  };
+
+  const getMoonPhaseImg = (text) => {
+    if (text === "Full Moon") {
+      return FullMoon;
+    } else if (text === "New Moon") {
+      return NewMoon;
+    } else if (text === "First Quarter") {
+      return FirstQuarter;
+    } else if (text === "Last Quarter") {
+      return LastQuarter;
+    } else if (text === "Waning Crescent") {
+      return WaningCrescent;
+    } else if (text === "Waxing Crescent") {
+      return WaxingCrescent;
+    } else if (text === "Waning Gibbous") {
+      return WaningGibbous;
+    } else if (text === "Waxing Gibbous") {
+      return WaxingGibbous;
+    } else {
+      return BlackCatMoon;
+    }
   };
 
   return { createMainInfoCard };
