@@ -1327,6 +1327,35 @@ const handlers = (() => {
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (handlers);
 
 
+/***/ }),
+/* 25 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+const apiData = (() => {
+  const form = document.querySelector("form");
+  const loader = document.querySelector(".loader");
+  const switchUnitBtn = document.querySelector(".switch-checkbox");
+  const WAKey = "8095df91194a4c03b96164937232306";
+  const GAKey = "ok9Un0m6rvRm9ifbic2wG6Mb2ZlNMmg3";
+
+  const showWeather = async (locationInput) => {
+    let url = `https://api.weatherapi.com/v1/forecast.json?key=${WAKey}&q=${locationInput}&days=2`;
+    const response = await fetch(url, { mode: "cors" });
+    if (!response.ok) throw new Error(response.statusText);
+    const weatherData = await response.json();
+
+    console.log(weatherData);
+  };
+  return { showWeather };
+})();
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (apiData);
+
+
 /***/ })
 /******/ 	]);
 /************************************************************************/
@@ -1471,6 +1500,8 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 /* harmony import */ var _js_handlers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(24);
+/* harmony import */ var _js_api__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(25);
+
 
 
 
@@ -1480,6 +1511,8 @@ _js_handlers__WEBPACK_IMPORTED_MODULE_1__["default"].openForecastInfo();
 _js_handlers__WEBPACK_IMPORTED_MODULE_1__["default"].closeForecastInfo();
 _js_handlers__WEBPACK_IMPORTED_MODULE_1__["default"].openGifSection();
 _js_handlers__WEBPACK_IMPORTED_MODULE_1__["default"].closeGifSection();
+
+_js_api__WEBPACK_IMPORTED_MODULE_2__["default"].showWeather("Bucharest");
 
 })();
 
