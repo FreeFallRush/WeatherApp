@@ -1411,6 +1411,15 @@ const domElements = (() => {
   const switchUnitBtn = document.querySelector(".switch-checkbox");
   const lastUpdate = document.querySelector(".last-updated");
 
+  const humidity = document.querySelector("#humidity-text");
+  const cloudiness = document.querySelector("#cloudiness-text");
+  const rainfall = document.querySelector("#rainfall-text");
+  const snowfall = document.querySelector("#snowfall-text");
+  const uvIndex = document.querySelector("#uv-index-text");
+  const windSpeed = document.querySelector("#wind-speed-text");
+  const pressure = document.querySelector("#pressure-text");
+  const visibility = document.querySelector("#visibility-text");
+
   const createMainInfoCard = (weather) => {
     currentLocation.textContent = `${weather.location.name}, ${weather.location.country}`;
     const localDateTime = weather.location.localtime;
@@ -1463,6 +1472,17 @@ const domElements = (() => {
     lastUpdate.textContent = `Last Updated on: ${formattedlastUpdated}  @ ${lastUpdatedTime}`;
   };
 
+  const createExtraInfoCard = (weather) => {
+    humidity.textContent = `Humidity: ${weather.current.humidity}%`;
+    cloudiness.textContent = `Cloudiness: ${weather.current.cloud}%`;
+    rainfall.textContent = `Chance of Rain: ${weather.forecast.forecastday[0].day.daily_chance_of_rain}%`;
+    snowfall.textContent = `Chance of Snow: ${weather.forecast.forecastday[0].day.daily_chance_of_snow}%`;
+    uvIndex.textContent = `UV Index: ${weather.current.uv}`;
+    windSpeed.textContent = `Wind Speed: ${weather.current.wind_kph}km/h`;
+    pressure.textContent = `Pressure: ${weather.current.pressure_mb}hPa`;
+    visibility.textContent = `Visibility: ${weather.current.vis_km}km`;
+  };
+
   const getMoonPhaseImg = (text) => {
     if (text === "Full Moon") {
       return _moon_phase_full_moon_png__WEBPACK_IMPORTED_MODULE_0__;
@@ -1485,7 +1505,7 @@ const domElements = (() => {
     }
   };
 
-  return { createMainInfoCard };
+  return { createMainInfoCard, createExtraInfoCard };
 })();
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (domElements);
