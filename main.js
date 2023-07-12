@@ -1416,6 +1416,65 @@ const domElements = (() => {
     day.textContent = currDay;
     date.textContent = currentDate;
     time.textContent = localTime;
+
+    const roundedTempC = Math.round(weather.current.temp_c);
+    const roundedTempF = Math.round(weather.current.temp_f);
+    currentTemp.textContent = `${roundedTempC}°C`;
+
+    currentImg.src = `https://${weather.current.condition.icon}`;
+    currentImg.alt = "weather-icon";
+
+    const moonPhaseText = weather.forecast.forecastday[0].astro.moon_phase;
+    moonPhase.textContent = moonPhaseText;
+    moonImg.src = getMoonPhaseImg(moonPhaseText);
+    moonImg.alt = `moon phase ${moonPhaseText} icon`;
+
+    const roundedFeelsLikeC = Math.round(weather.current.feelslike_c);
+    const roundedFeelsLikeF = Math.round(weather.current.feelslike_f);
+    feelsLikeDegrees.textContent = `Feels like: ${roundedFeelsLikeC}°C`;
+    descriptiveText.textContent = weather.current.condition.text;
+
+    switchUnitBtn.addEventListener("click", () => {
+      if (switchUnitBtn.checked === true) {
+        currentTemp.textContent = `${roundedTempF}°F`;
+        feelsLikeDegrees.textContent = `Feels like: ${roundedFeelsLikeF}°F`;
+      } else if (switchUnitBtn.checked === false) {
+        currentTemp.textContent = `${roundedTempC}°C`;
+        feelsLikeDegrees.textContent = `Feels like: ${roundedFeelsLikeC}°C`;
+      }
+    });
+
+    const lastUpdatedDateTime = weather.current.last_updated;
+    console.log(lastUpdatedDateTime);
+    const [lastUpdatedDate, lastUpdatedTime] = lastUpdatedDateTime.split(" ");
+
+    const formattedlastUpdated = (0,date_fns__WEBPACK_IMPORTED_MODULE_9__["default"])(
+      new Date(lastUpdatedDate),
+      "do MMM yyyy"
+    );
+    lastUpdate.textContent = `Last Updated on: ${formattedlastUpdated}  @ ${lastUpdatedTime}`;
+  };
+
+  const getMoonPhaseImg = (text) => {
+    if (text === "Full Moon") {
+      return _moon_phase_full_moon_png__WEBPACK_IMPORTED_MODULE_0__;
+    } else if (text === "New Moon") {
+      return _moon_phase_new_moon_png__WEBPACK_IMPORTED_MODULE_1__;
+    } else if (text === "First Quarter") {
+      return _moon_phase_first_quarter_png__WEBPACK_IMPORTED_MODULE_2__;
+    } else if (text === "Last Quarter") {
+      return _moon_phase_last_quarter_png__WEBPACK_IMPORTED_MODULE_3__;
+    } else if (text === "Waning Crescent") {
+      return _moon_phase_waning_crescent_png__WEBPACK_IMPORTED_MODULE_4__;
+    } else if (text === "Waxing Crescent") {
+      return _moon_phase_waxing_crescent_png__WEBPACK_IMPORTED_MODULE_5__;
+    } else if (text === "Waning Gibbous") {
+      return _moon_phase_waning_gibbous_png__WEBPACK_IMPORTED_MODULE_6__;
+    } else if (text === "Waxing Gibbous") {
+      return _moon_phase_waxing_gibbous_png__WEBPACK_IMPORTED_MODULE_7__;
+    } else {
+      return _moon_phase_black_cat_moon_png__WEBPACK_IMPORTED_MODULE_8__;
+    }
   };
 
   return { createMainInfoCard };
