@@ -1335,6 +1335,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _dom_elements__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(26);
+
+
 const apiData = (() => {
   const form = document.querySelector("form");
   const loader = document.querySelector(".loader");
@@ -1349,11 +1352,59 @@ const apiData = (() => {
     const weatherData = await response.json();
 
     console.log(weatherData);
+    _dom_elements__WEBPACK_IMPORTED_MODULE_0__["default"].createMainInfoCard(weatherData);
   };
   return { showWeather };
 })();
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (apiData);
+
+
+/***/ }),
+/* 26 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+Object(function webpackMissingModule() { var e = new Error("Cannot find module '../img/moon-phase/full-moon.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+Object(function webpackMissingModule() { var e = new Error("Cannot find module '../img/moon-phase/new-moon.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+Object(function webpackMissingModule() { var e = new Error("Cannot find module '../img/moon-phase/first-quarter.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+Object(function webpackMissingModule() { var e = new Error("Cannot find module '../img/moon-phase/last-quarter.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+Object(function webpackMissingModule() { var e = new Error("Cannot find module '../img/moon-phase/waning-crescent.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+Object(function webpackMissingModule() { var e = new Error("Cannot find module '../img/moon-phase/waxing-crescent.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+Object(function webpackMissingModule() { var e = new Error("Cannot find module '../img/moon-phase/waning-gibbous.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+Object(function webpackMissingModule() { var e = new Error("Cannot find module '../img/moon-phase/waxing-gibbous.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+Object(function webpackMissingModule() { var e = new Error("Cannot find module '../img/moon-phase/black-cat-moon.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+
+
+
+
+
+
+
+
+
+
+
+const domElements = (() => {
+  const currentLocation = document.querySelector(".current-location");
+  const day = document.querySelector(".current-day");
+  const date = document.querySelector(".full-date");
+  const time = document.querySelector(".current-local-time");
+  const currentTemp = document.querySelector(".current-temperature");
+  const currentImg = document.querySelector(".current-weather-img");
+  const moonPhase = document.querySelector(".moon-phase");
+  const moonImg = document.querySelector(".moon-phase-icon");
+  const feelsLikeDegrees = document.querySelector(".feels-like");
+  const descriptiveText = document.querySelector(".descriptive-text");
+  const switchUnitBtn = document.querySelector(".switch-checkbox");
+  const lastUpdate = document.querySelector(".last-updated");
+
+  const createMainInfoCard = (weather) => {
+    currentLocation.textContent = `${weather.location.name}, ${weather.location.country}`;
+  };
+
+  return { createMainInfoCard };
+})();
 
 
 /***/ })
