@@ -1354,6 +1354,7 @@ const apiData = (() => {
     console.log(weatherData);
     _dom_elements__WEBPACK_IMPORTED_MODULE_0__["default"].createMainInfoCard(weatherData);
     _dom_elements__WEBPACK_IMPORTED_MODULE_0__["default"].createExtraInfoCard(weatherData);
+    _dom_elements__WEBPACK_IMPORTED_MODULE_0__["default"].createForecastInfoCard(weatherData);
   };
 
   form.addEventListener("submit", (e) => {

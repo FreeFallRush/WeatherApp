@@ -16,6 +16,7 @@ const apiData = (() => {
     console.log(weatherData);
     domElements.createMainInfoCard(weatherData);
     domElements.createExtraInfoCard(weatherData);
+    domElements.createForecastInfoCard(weatherData);
   };
 
   form.addEventListener("submit", (e) => {
