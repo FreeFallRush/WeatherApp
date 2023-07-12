@@ -1251,6 +1251,82 @@ module.exports = __webpack_require__.p + "0bc3fb371c487b0cce81.woff2";
 
 module.exports = __webpack_require__.p + "770e171b20300e3a2b22.woff";
 
+/***/ }),
+/* 24 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+const handlers = (() => {
+  const extraInfoBtn = document.querySelector(".extra-info-btn");
+  const extraInfoSection = document.querySelector(".extra-info-card");
+  const closeExtraInfoBtn = document.querySelector(".close-extra-info-btn");
+
+  const forecastInfoBtn = document.querySelector(".forecast-btn");
+  const forecastInfoSection = document.querySelector(".forecast-info-card");
+  const closeForecastBtn = document.querySelector(".close-forecast-btn");
+
+  const gifBtn = document.querySelector(".gif-btn");
+  const gifSection = document.querySelector(".random-gif-card");
+  const closeGifBtn = document.querySelector(".close-gif-btn");
+
+  const openExtraInfo = () => {
+    extraInfoBtn.addEventListener("click", () => {
+      extraInfoSection.classList.remove("hidden");
+      forecastInfoSection.classList.add("hidden");
+      gifSection.classList.add("hidden");
+    });
+  };
+
+  const closeExtraInfo = () => {
+    closeExtraInfoBtn.addEventListener("click", () => {
+      extraInfoSection.classList.add("hidden");
+    });
+  };
+
+  const openForecastInfo = () => {
+    forecastInfoBtn.addEventListener("click", () => {
+      forecastInfoSection.classList.remove("hidden");
+      extraInfoSection.classList.add("hidden");
+      gifSection.classList.add("hidden");
+    });
+  };
+
+  const closeForecastInfo = () => {
+    closeForecastBtn.addEventListener("click", () => {
+      forecastInfoSection.classList.add("hidden");
+    });
+  };
+
+  const openGifSection = () => {
+    gifBtn.addEventListener("click", () => {
+      gifSection.classList.remove("hidden");
+      extraInfoSection.classList.add("hidden");
+      forecastInfoSection.classList.add("hidden");
+    });
+  };
+
+  const closeGifSection = () => {
+    closeGifBtn.addEventListener("click", () => {
+      gifSection.classList.add("hidden");
+    });
+  };
+
+  return {
+    openExtraInfo,
+    closeExtraInfo,
+    openForecastInfo,
+    closeForecastInfo,
+    openGifSection,
+    closeGifSection,
+  };
+})();
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (handlers);
+
+
 /***/ })
 /******/ 	]);
 /************************************************************************/
@@ -1394,7 +1470,16 @@ var __webpack_exports__ = {};
 (() => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var _js_handlers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(24);
 
+
+
+_js_handlers__WEBPACK_IMPORTED_MODULE_1__["default"].openExtraInfo();
+_js_handlers__WEBPACK_IMPORTED_MODULE_1__["default"].closeExtraInfo();
+_js_handlers__WEBPACK_IMPORTED_MODULE_1__["default"].openForecastInfo();
+_js_handlers__WEBPACK_IMPORTED_MODULE_1__["default"].closeForecastInfo();
+_js_handlers__WEBPACK_IMPORTED_MODULE_1__["default"].openGifSection();
+_js_handlers__WEBPACK_IMPORTED_MODULE_1__["default"].closeGifSection();
 
 })();
 
