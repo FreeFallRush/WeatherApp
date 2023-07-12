@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="favicon/favicon-16x16.png"
+    />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+  </head>
+  <body>
+    <header>
+      <div id="logo">
+        <img
+          src="logo/weather_rainbow.png"
+          alt="weather app logo representing a rainbow showing from the clouds"
+        />
+      </div>
+      <div id="app-name" class="gradient-text">Weather App</div>
+    </header>
+    <main>
+      <!-- Loader -->
+      <div class="loader hidden">
+        <div class="loader-inner">
+          <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+          </div>
+          <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+          </div>
+          <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+          </div>
+          <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+          </div>
+          <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+          </div>
+        </div>
+      </div>
+      <!-- Search Section -->
+      <div class="search-container">
+        <div id="search-location">
+          <form action="#">
+            <label for="location"></label>
+            <input
+              type="text"
+              id="location"
+              class="location"
+              name="location"
+              placeholder="Search location"
+            />
+            <button id="search-btn">Search</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Main Info Card -->
+      <section id="main-info-card-container">
+        <div class="weather-today-card">
+          <h2 class="current-location"></h2>
+          <div class="main-card-info">
+            <div class="date-info">
+              <h2 class="current-day"></h2>
+              <h4 class="full-date"></h4>
+              <h4 class="current-local-time"></h4>
+            </div>
+            <div class="weather-info">
+              <div class="main-weather-info">
+                <h2 class="current-temperature"></h2>
+                <img class="current-weather-img" />
+              </div>
+            </div>
+          </div>
+          <div class="detailed-info">
+            <div class="moon-phase-info">
+              <h4 class="moon-phase"></h4>
+              <img class="moon-phase-icon" />
+            </div>
+            <div class="detailed-weather-info">
+              <h4 class="feels-like"></h4>
+              <h4 class="descriptive-text"></h4>
+            </div>
+          </div>
+          <div class="toggle-button">
+            <label class="switch">
+              <input class="switch-checkbox" type="checkbox" />
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <div class="extra-btns">
+            <button class="extra-info-btn">Extra Info</button>
+            <button class="forecast-btn">Forecast</button>
+            <button class="gif-btn">Random Gif</button>
+          </div>
+        </div>
+      </section>
+      <!-- Extra Current Weather Info -->
+      <!-- WITH ICONS FROM https://www.flaticon.com  -->
+      <section id="weather-extra-info">
+        <div class="extra-info-card hidden">
+          <div class="extra-info-card-content">
+            <div class="left-extra-info">
+              <!-- ICON: <a href="https://www.flaticon.com/free-icons/humidity-sensor" title="humidity sensor icons">Humidity sensor icons created by Maan Icons - Flaticon</a>  -->
+              <div class="humidity extra-weather-info">
+                <img
+                  class="humidity-icon extra-icon"
+                  src="icons/humidity.png"
+                  alt="humidity-icon"
+                />
+                <p id="humidity-text"></p>
+              </div>
+              <!-- ICON:<a href="https://www.flaticon.com/free-icons/cloudy" title="cloudy icons">Cloudy icons created by Freepik - Flaticon</a> -->
+              <div class="cloudiness extra-weather-info">
+                <img
+                  class="cloudiness-icon extra-icon"
+                  src="icons/cloudy.png"
+                  alt="cloudiness-icon"
+                />
+                <p id="cloudiness-text"></p>
+              </div>
+              <!-- ICON:<a href="https://www.flaticon.com/free-icons/rainfall" title="rainfall icons">Rainfall icons created by smashingstocks - Flaticon</a> -->
+              <div class="rainfall extra-weather-info">
+                <img
+                  class="rainfall-icon extra-icon"
+                  src="icons/rainfall.png"
+                  alt="rainfall-icon"
+                />
+                <p id="rainfall-text"></p>
+              </div>
+              <!-- ICON:<a href="https://www.flaticon.com/free-icons/snow" title="snow icons">Snow icons created by Freepik - Flaticon</a> -->
+              <div class="snowfall extra-weather-info">
+                <img
+                  class="snowfall-icon extra-icon"
+                  src="icons/snow.png"
+                  alt="snowfall-icon"
+                />
+                <p id="snowfall-text"></p>
+              </div>
+            </div>
+            <div class="right-extra-info">
+              <!-- ICON:<a href="https://www.flaticon.com/free-icons/wind" title="wind icons">Wind icons created by Freepik - Flaticon</a> -->
+              <div class="wind-speed extra-weather-info">
+                <img
+                  class="wind-speed-icon extra-icon"
+                  src="icons/wind-speed.png"
+                  alt="wind-speed-icon"
+                />
+                <p id="wind-speed-text"></p>
+              </div>
+              <!-- ICON:<a href="https://www.flaticon.com/free-icons/pressure" title="pressure icons">Pressure icons created by surang - Flaticon</a> -->
+              <div class="pressure extra-weather-info">
+                <img
+                  class="pressure-icon extra-icon"
+                  src="icons/pressure.png"
+                  alt="pressure-icon"
+                />
+                <p id="pressure-text"></p>
+              </div>
+              <!-- ICON:<a href="https://www.flaticon.com/free-icons/fog" title="fog icons">Fog icons created by Freepik - Flaticon</a> -->
+              <div class="visibility extra-weather-info">
+                <img
+                  class="visibility-icon extra-icon"
+                  src="icons/visibility.png"
+                  alt="visibility-icon"
+                />
+                <p id="visibility-text"></p>
+              </div>
+              <!-- ICON:<a href="https://www.flaticon.com/free-icons/sunburn" title="sunburn icons">Sunburn icons created by Freepik - Flaticon</a> -->
+              <div class="uv-index extra-weather-info">
+                <img
+                  class="uv-index-icon extra-icon"
+                  src="icons/uv-index.png"
+                  alt="uv-index-icon"
+                />
+                <p id="uv-index-text"></p>
+              </div>
+            </div>
+          </div>
+          <button class="close-extra-info-btn">CLOSE</button>
+        </div>
+      </section>
+
+      <!-- Tomorrow Forecast Section -->
+      <section id="weather-forecast-info">
+        <div class="forecast-info-card hidden">
+          <div class="forecast-card-content">
+            <h3 class="tomorrow-forecast">Tomorrow's Forecast</h3>
+
+            <div class="forecast-date-info">
+              <div class="date-side">
+                <h2 class="forecast-day"></h2>
+                <h4 class="forecast-full-date"></h4>
+              </div>
+              <div class="forecast-weather-tomorrow">
+                <img class="forecast-weather-img" />
+                <h4 class="forecast-description"></h4>
+              </div>
+            </div>
+
+            <div class="forecast-weather">
+              <h4 class="forecast-min-temperature"></h4>
+              <h4 class="forecast-max-temperature"></h4>
+              <h4 class="forecast-rain"></h4>
+            </div>
+            <div class="astro-forecast-info">
+              <div class="astro-forecast">
+                <h4 class="forecast-moon-phase"></h4>
+                <img class="forecast-moon-phase-img" />
+              </div>
+              <div class="daylong-info">
+                <h4 class="sunrise"></h4>
+                <h4 class="sunset"></h4>
+              </div>
+            </div>
+          </div>
+          <button class="close-forecast-btn">CLOSE</button>
+        </div>
+      </section>
+      <!-- Random Gif Section -->
+      <section id="random-gif-container">
+        <div class="random-gif-card hidden">
+          <div class="random-gif-content">
+            <h2 class="random-gif-title">Here's your random gif🌈</h2>
+            <img class="random-gif" />
+            <h2 class="error-gif"></h2>
+          </div>
+          <button class="close-gif-btn">CLOSE</button>
+        </div>
+      </section>
+      <p class="last-updated"></p>
+    </main>
+
+    <script src="main.js"></script>
+  </body>
+</html>
