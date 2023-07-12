@@ -1,0 +1,705 @@
+@font-face {
+  font-family: "PoppinsLight";
+  src: url("fonts/Poppins-Light.woff2") format("woff2"),
+    url("fonts/Poppins-Light.woff") format("woff");
+}
+
+@font-face {
+  font-family: "PoppinsRegular";
+  src: url("fonts/Poppins-Regular.woff2") format("woff2"),
+    url("fonts/Poppins-Regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "PoppinsMedium";
+  src: url("fonts/Poppins-Medium.woff2") format("woff2"),
+    url("fonts/Poppins-Medium.woff") format("woff");
+}
+
+@font-face {
+  font-family: "PoppinsSemiBold";
+  src: url("fonts/Poppins-SemiBold.woff2") format("woff2"),
+    url("fonts/Poppins-SemiBold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "PoppinsBold";
+  src: url("fonts/Poppins-Bold.woff2") format("woff2"),
+    url("fonts/Poppins-Bold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "PoppinsBlack";
+  src: url("fonts/Poppins-Black.woff2") format("woff2"),
+    url("fonts/Poppins-Black.woff") format("woff");
+}
+
+:root {
+  --header-bcg: #c9d6ff;
+  --header-gradient-bcg-webkit: -webkit-linear-gradient(
+    to right,
+    #c9d6ff,
+    #e2e2e2
+  );
+  --header-gradient-bcg: linear-gradient(to right, #c9d6ff, #e2e2e2);
+  --main-bcg: #d4c8c4;
+  --main-gradient-bcg: radial-gradient(at left top, #d4c8c4, #7670e0);
+  --transparent-bcg: rgba(0, 0, 0, 0);
+  --inset-box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  --input-box-shadow: rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  --input-box-shadow-focused: rgb(201, 214, 255) 0px -3px 0px inset;
+  --tucked-box-shadow: rgb(201, 214, 255) 3px 3px 6px 0px inset,
+    rgb(201, 214, 255) -3px -3px 6px 1px inset;
+  --toggle-btn-box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  --extra-cards-box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px,
+    rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px,
+    rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  --extraBtns-box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+  --grey-border: 1px solid grey;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-family: "PoppinsLight";
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background: var(--header-bcg);
+  background: var(--header-gradient-bcg-webkit);
+  background: var(--header-gradient-bcg);
+  box-shadow: var(--inset-box-shadow);
+}
+
+#app-name {
+  font-family: "PoppinsBlack";
+  font-weight: 800;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+#logo img {
+  width: 83px;
+  height: auto;
+}
+
+main {
+  width: 100%;
+  min-height: 100vh;
+  padding-bottom: 30px;
+  background: var(--main-bcg);
+  background: var(--main-gradient-bcg);
+}
+
+/* Search Section */
+.search-container {
+  text-align: center;
+}
+
+input[type="text"] {
+  font-size: 1rem;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  background: var(--transparent-bcg);
+  box-shadow: var(--input-box-shadow);
+}
+
+input[type="text"]:focus {
+  box-shadow: var(--input-box-shadow-focused);
+}
+
+#search-btn {
+  font-family: "PoppinsBold";
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 30%;
+  background: var(--transparent-bcg);
+  font-weight: 800;
+  box-shadow: var(--inset-box-shadow);
+  border: none;
+}
+
+#search-btn:hover {
+  box-shadow: var(--tucked-box-shadow);
+}
+
+/* Main Info Card */
+
+#main-info-card-container {
+  height: auto;
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.weather-today-card {
+  width: 400px;
+  padding: 20px;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: var(--inset-box-shadow);
+}
+
+.main-card-info {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 22px;
+  padding-bottom: 15px;
+}
+
+.date-info {
+  line-height: 1.9;
+}
+
+.main-weather-info {
+  font-family: "PoppinsBold";
+  display: flex;
+  align-items: center;
+}
+
+.current-location {
+  text-align: center;
+}
+.current-location,
+.current-day {
+  font-family: "PoppinsBold";
+  font-size: 1.3rem;
+}
+
+.detailed-info {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  line-height: 1.9;
+  padding-top: 15px;
+  border-top: var(--grey-border);
+}
+
+.detailed-weather-info {
+  width: 40%;
+  text-align: right;
+}
+
+.moon-phase-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.feels-like {
+  font-family: "PoppinsBold";
+  text-align: right;
+}
+
+.moon-phase {
+  font-family: "PoppinsBold";
+  margin-bottom: 10px;
+}
+.moon-phase-icon {
+  width: 35px;
+  height: auto;
+}
+
+.descriptive-text {
+  font-size: 0.9rem;
+}
+
+/* Slider Btn */
+.toggle-button {
+  display: flex;
+  position: relative;
+  width: 100px;
+  height: 70px;
+  box-sizing: border-box;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+
+  width: 76px;
+  height: 36px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--transparent-bcg);
+  box-shadow: var(--toggle-btn-box-shadow);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "°C";
+  height: 28px;
+  width: 28px;
+  left: 4px;
+  bottom: 4px;
+  background-color: var(--header-bcg);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  color: #023e67;
+  font-family: "PoppinsBlack";
+  font-size: 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input:checked + .slider {
+  background-color: var(--transparent-bcg);
+}
+
+input:focus + .slider {
+  box-shadow: var(--toggle-btn-box-shadow);
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(39px);
+  -ms-transform: translateX(39px);
+  transform: translateX(39px);
+  content: "°F";
+}
+
+.slider.round {
+  border-radius: 34px;
+  border: var(--grey-border);
+}
+.slider.round:before {
+  border-radius: 50%;
+  border: var(--grey-border);
+}
+
+/* Extra Btns */
+.extra-btns {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.extra-info-btn,
+.forecast-btn,
+.gif-btn {
+  font-family: "PoppinsBold";
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 10%;
+  background: var(--header-bcg);
+  font-weight: 800;
+  box-shadow: var(--inset-box-shadow);
+  border: none;
+}
+
+/* Extra Current Info Section */
+/* Forecast Section */
+/* Random Gif Section */
+#weather-extra-info,
+#weather-forecast-info,
+#random-gif-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.extra-info-card {
+  width: 400px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(248, 251, 184);
+  box-shadow: var(--extra-cards-box-shadow);
+}
+
+.extra-info-card-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 5px;
+  font-family: "PoppinsSemiBold";
+  font-size: 0.85rem;
+  line-height: 3;
+}
+
+.extra-info-btn:hover,
+.forecast-btn:hover,
+.gif-btn:hover {
+  box-shadow: var(--tucked-box-shadow);
+}
+
+.extra-weather-info {
+  display: flex;
+  align-items: center;
+}
+
+.extra-icon {
+  width: 25px;
+  height: auto;
+  margin-right: 8px;
+}
+
+.forecast-info-card {
+  width: 400px;
+  height: 390px;
+  background-color: rgb(184, 205, 251);
+  box-shadow: var(--extra-cards-box-shadow);
+}
+
+.forecast-moon-phase-img {
+  width: 30px;
+  height: auto;
+}
+
+.forecast-card-content {
+  width: 100%;
+  padding: 20px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: "PoppinsSemiBold";
+  font-size: 0.9rem;
+}
+
+.tomorrow-forecast {
+  font-family: "PoppinsBlack";
+}
+
+.forecast-date-info {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+  border-bottom: var(--grey-border);
+  padding: 10px;
+}
+
+.forecast-weather-tomorrow {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.date-side {
+  line-height: 2.3;
+}
+
+.forecast-weather-img {
+  width: 46px;
+  height: auto;
+}
+
+.forecast-weather {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 19px;
+  border-bottom: var(--grey-border);
+}
+
+.astro-forecast {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.astro-forecast-info {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 10px;
+  line-height: 2.5;
+}
+
+.close-extra-info-btn,
+.close-forecast-btn,
+.close-gif-btn {
+  cursor: pointer;
+  padding: 5px;
+  font-family: "PoppinsSemiBold";
+  width: 100%;
+  border: none;
+  box-shadow: var(--extraBtns-box-shadow);
+}
+
+.close-extra-info-btn {
+  background: var(--header-bcg);
+  margin-bottom: 12px;
+}
+
+.close-forecast-btn {
+  background: rgb(248, 251, 184);
+}
+
+.close-gif-btn {
+  background: rgb(253, 177, 177);
+  margin-bottom: 12px;
+}
+
+.close-gif-btn:hover,
+.close-extra-info-btn:hover,
+.close-forecast-btn:hover {
+  background-color: rgb(208, 208, 208);
+  color: rgb(248, 251, 184);
+}
+
+.random-gif-card {
+  width: 400px;
+  height: auto;
+  background-color: rgb(220, 251, 184);
+  box-shadow: var(--extra-cards-box-shadow);
+}
+
+.random-gif-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.random-gif-title {
+  font-family: "PoppinsBlack";
+  font-size: 1.2rem;
+  padding: 20px 5px;
+  border-bottom: var(--grey-border);
+}
+
+.random-gif {
+  width: 80%;
+  height: auto;
+  padding-bottom: 20px;
+}
+
+.last-updated {
+  margin-top: 60px;
+  text-align: center;
+  font-family: "PoppinsBold";
+  color: rgb(248, 251, 184);
+  text-shadow: 1px 1px 1px #000, 3px 3px 5px rgba(3, 102, 214, 0.3);
+}
+
+.hidden {
+  display: none;
+}
+/* Loader - https://codepen.io/jackrugile/pen/JddmaX*/
+
+.loader {
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 99999;
+}
+
+.loader-inner {
+  bottom: 0;
+  height: 60px;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100px;
+}
+
+.loader-line-wrap {
+  animation: spin 2000ms cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite;
+  box-sizing: border-box;
+  height: 50px;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  transform-origin: 50% 100%;
+  width: 100px;
+}
+.loader-line {
+  border: 4px solid transparent;
+  border-radius: 100%;
+  box-sizing: border-box;
+  height: 100px;
+  left: 0;
+  margin: 0 auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100px;
+}
+.loader-line-wrap:nth-child(1) {
+  animation-delay: -50ms;
+}
+.loader-line-wrap:nth-child(2) {
+  animation-delay: -100ms;
+}
+.loader-line-wrap:nth-child(3) {
+  animation-delay: -150ms;
+}
+.loader-line-wrap:nth-child(4) {
+  animation-delay: -200ms;
+}
+.loader-line-wrap:nth-child(5) {
+  animation-delay: -250ms;
+}
+
+.loader-line-wrap:nth-child(1) .loader-line {
+  border-color: hsl(0, 80%, 60%);
+  height: 90px;
+  width: 90px;
+  top: 7px;
+}
+.loader-line-wrap:nth-child(2) .loader-line {
+  border-color: hsl(60, 80%, 60%);
+  height: 76px;
+  width: 76px;
+  top: 14px;
+}
+.loader-line-wrap:nth-child(3) .loader-line {
+  border-color: hsl(120, 80%, 60%);
+  height: 62px;
+  width: 62px;
+  top: 21px;
+}
+.loader-line-wrap:nth-child(4) .loader-line {
+  border-color: hsl(180, 80%, 60%);
+  height: 48px;
+  width: 48px;
+  top: 28px;
+}
+.loader-line-wrap:nth-child(5) .loader-line {
+  border-color: hsl(240, 80%, 60%);
+  height: 34px;
+  width: 34px;
+  top: 35px;
+}
+
+@keyframes spin {
+  0%,
+  15% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Gradient text used at logo text from: https://fossheim.io/writing/posts/css-text-gradient/*/
+.gradient-text {
+  background-color: #ca4246;
+  background-image: linear-gradient(
+    45deg,
+    #ca4246 16.666%,
+    #e16541 16.666%,
+    #e16541 33.333%,
+    #f18f43 33.333%,
+    #f18f43 50%,
+    #8b9862 50%,
+    #8b9862 66.666%,
+    #476098 66.666%,
+    #476098 83.333%,
+    #a7489b 83.333%
+  );
+  background-size: 100%;
+  background-repeat: repeat;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: rainbow-text-simple-animation-rev 0.75s ease forwards;
+}
+
+.gradient-text:hover {
+  animation: rainbow-text-simple-animation 0.5s ease-in forwards;
+}
+
+@keyframes rainbow-text-simple-animation-rev {
+  0% {
+    background-size: 650%;
+  }
+  40% {
+    background-size: 650%;
+  }
+  100% {
+    background-size: 100%;
+  }
+}
+
+@keyframes rainbow-text-simple-animation {
+  0% {
+    background-size: 100%;
+  }
+  80% {
+    background-size: 650%;
+  }
+  100% {
+    background-size: 650%;
+  }
+}
+
+@media all and (max-width: 530px) {
+  input[type="text"] {
+    box-shadow: var(--tucked-box-shadow);
+  }
+
+  input[type="text"]:focus {
+    box-shadow: var(--input-box-shadow-focused);
+  }
+}
+
+@media all and (max-width: 330px) {
+  .extra-info-card-content {
+    font-size: 0.7rem;
+  }
+  .extra-icon {
+    width: 20px;
+    height: auto;
+  }
+  .extra-info-btn,
+  .forecast-btn,
+  .gif-btn {
+    padding: 4px;
+  }
+
+  input[type="text"] {
+    font-size: 0.7rem;
+  }
+}
