@@ -1346,16 +1346,49 @@ const apiData = (() => {
   const GAKey = "ok9Un0m6rvRm9ifbic2wG6Mb2ZlNMmg3";
 
   const showWeather = async (locationInput) => {
-    let url = `https://api.weatherapi.com/v1/forecast.json?key=${WAKey}&q=${locationInput}&days=2`;
-    const response = await fetch(url, { mode: "cors" });
-    if (!response.ok) throw new Error(response.statusText);
-    const weatherData = await response.json();
+    try {
+      loader.classList.remove("hidden");
+      let url = `https://api.weatherapi.com/v1/forecast.json?key=${WAKey}&q=${locationInput}&days=2`;
+      const response = await fetch(url, { mode: "cors" });
+      if (!response.ok) throw new Error(response.statusText);
+      const weatherData = await response.json();
 
-    console.log(weatherData);
-    _dom_elements__WEBPACK_IMPORTED_MODULE_0__["default"].createMainInfoCard(weatherData);
-    _dom_elements__WEBPACK_IMPORTED_MODULE_0__["default"].createExtraInfoCard(weatherData);
-    _dom_elements__WEBPACK_IMPORTED_MODULE_0__["default"].createForecastInfoCard(weatherData);
+      const currentWeather = `${weatherData.current.condition.text.toLocaleLowerCase()} rainbow`;
+
+      let gifSearch = `https://api.giphy.com/v1/gifs/translate?api_key=${GAKey}&s=${currentWeather}`;
+      switchUnitBtn.checked = false;
+      showGif(gifSearch);
+      loader.classList.add("hidden");
+
+      console.log(weatherData);
+      _dom_elements__WEBPACK_IMPORTED_MODULE_0__["default"].createMainInfoCard(weatherData);
+      _dom_elements__WEBPACK_IMPORTED_MODULE_0__["default"].createExtraInfoCard(weatherData);
+      _dom_elements__WEBPACK_IMPORTED_MODULE_0__["default"].createForecastInfoCard(weatherData);
+    } catch (error) {
+      loader.classList.add("hidden");
+      if (error.message !== "NOT FOUND" && locationInput === "") {
+        alert(`Please add a location 🌈`);
+      } else if (error.message !== "NOT FOUND") {
+        alert(`Sorry, we couldn't find '${locationInput}'`);
+      } else {
+        alert(error);
+      }
+    }
   };
+
+  const randomGif = document.querySelector(".random-gif");
+  const errorGif = document.querySelector(".error-gif");
+  async function showGif(url) {
+    try {
+      const response = await fetch(url, { mode: "cors" });
+      if (!response.ok) throw new Error(response.statusText);
+      const gif = await response.json();
+      randomGif.src = gif.data.images.original.url;
+    } catch (error) {
+      console.log(error);
+      errorGif.textContent = error;
+    }
+  }
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
