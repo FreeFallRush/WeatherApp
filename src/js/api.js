@@ -1,3 +1,5 @@
+import domElements from "./dom-elements";
+
 const apiData = (() => {
   const form = document.querySelector("form");
   const loader = document.querySelector(".loader");
@@ -12,6 +14,7 @@ const apiData = (() => {
     const weatherData = await response.json();
 
     console.log(weatherData);
+    domElements.createMainInfoCard(weatherData);
   };
   return { showWeather };
 })();
