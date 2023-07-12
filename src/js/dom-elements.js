@@ -32,6 +32,20 @@ const domElements = (() => {
   const pressure = document.querySelector("#pressure-text");
   const visibility = document.querySelector("#visibility-text");
 
+  const forecastDayText = document.querySelector(".forecast-day");
+  const forecastDateText = document.querySelector(".forecast-full-date");
+  const minTemp = document.querySelector(".forecast-min-temperature");
+  const maxTemp = document.querySelector(".forecast-max-temperature");
+  const forecastImg = document.querySelector(".forecast-weather-img");
+  const forecastDesc = document.querySelector(".forecast-description");
+  const forecastRain = document.querySelector(".forecast-rain");
+  const forecastMoonPhase = document.querySelector(".forecast-moon-phase");
+  const forecastMoonPhaseImg = document.querySelector(
+    ".forecast-moon-phase-img"
+  );
+  const sunrise = document.querySelector(".sunrise");
+  const sunset = document.querySelector(".sunset");
+
   const createMainInfoCard = (weather) => {
     currentLocation.textContent = `${weather.location.name}, ${weather.location.country}`;
     const localDateTime = weather.location.localtime;
@@ -95,6 +109,10 @@ const domElements = (() => {
     visibility.textContent = `Visibility: ${weather.current.vis_km}km`;
   };
 
+  const createForecastInfoCard = (weather) => {
+    const forecastDate = weather.forecast.forecastday[1].date;
+    console.log(forecastDate);
+  };
   const getMoonPhaseImg = (text) => {
     if (text === "Full Moon") {
       return FullMoon;
@@ -117,7 +135,7 @@ const domElements = (() => {
     }
   };
 
-  return { createMainInfoCard, createExtraInfoCard };
+  return { createMainInfoCard, createExtraInfoCard, createForecastInfoCard };
 })();
 
 export default domElements;
