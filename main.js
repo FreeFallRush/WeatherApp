@@ -1354,6 +1354,14 @@ const apiData = (() => {
     console.log(weatherData);
     _dom_elements__WEBPACK_IMPORTED_MODULE_0__["default"].createMainInfoCard(weatherData);
   };
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const locationInput = document.querySelector("#location");
+    showWeather(locationInput.value);
+    locationInput.value = "";
+  });
+
   return { showWeather };
 })();
 
