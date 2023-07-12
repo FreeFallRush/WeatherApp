@@ -1,3 +1,4 @@
+import { formatInTimeZone } from "date-fns-tz";
 import { format } from "date-fns";
 import FullMoon from "../moon-phase/full-moon.png";
 import NewMoon from "../moon-phase/new-moon.png";
@@ -48,17 +49,15 @@ const domElements = (() => {
 
   const createMainInfoCard = (weather) => {
     currentLocation.textContent = `${weather.location.name}, ${weather.location.country}`;
-    const localDateTime = weather.location.localtime;
-    console.log(localDateTime);
-
-    const [localDate, localTime] = localDateTime.split(" ");
-    console.log(localDate);
-    console.log(localTime);
-    const fullDate = format(new Date(localDate), "EEEE-do MMM yyyy");
-    const [currDay, currentDate] = fullDate.split("-");
+    const currentDateTime = formatInTimeZone(
+      new Date(),
+      `${weather.location.tz_id}`,
+      "EEEE-do MMM yyyy-HH:mm"
+    );
+    const [currDay, currentDate, currentTime] = currentDateTime.split("-");
     day.textContent = currDay;
     date.textContent = currentDate;
-    time.textContent = localTime;
+    time.textContent = currentTime;
 
     const roundedTempC = Math.round(weather.current.temp_c);
     const roundedTempF = Math.round(weather.current.temp_f);
