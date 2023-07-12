@@ -25,6 +25,17 @@ const domElements = (() => {
 
   const createMainInfoCard = (weather) => {
     currentLocation.textContent = `${weather.location.name}, ${weather.location.country}`;
+    const localDateTime = weather.location.localtime;
+    console.log(localDateTime);
+
+    const [localDate, localTime] = localDateTime.split(" ");
+    console.log(localDate);
+    console.log(localTime);
+    const fullDate = format(new Date(localDate), "EEEE-do MMM yyyy");
+    const [currDay, currentDate] = fullDate.split("-");
+    day.textContent = currDay;
+    date.textContent = currentDate;
+    time.textContent = localTime;
   };
 
   return { createMainInfoCard };
