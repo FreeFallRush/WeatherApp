@@ -1365,15 +1365,18 @@ const apiData = (() => {
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../img/moon-phase/full-moon.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../img/moon-phase/new-moon.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../img/moon-phase/first-quarter.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../img/moon-phase/last-quarter.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../img/moon-phase/waning-crescent.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../img/moon-phase/waxing-crescent.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../img/moon-phase/waning-gibbous.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../img/moon-phase/waxing-gibbous.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../img/moon-phase/black-cat-moon.png'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _moon_phase_full_moon_png__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(27);
+/* harmony import */ var _moon_phase_new_moon_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(28);
+/* harmony import */ var _moon_phase_first_quarter_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(29);
+/* harmony import */ var _moon_phase_last_quarter_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(30);
+/* harmony import */ var _moon_phase_waning_crescent_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(31);
+/* harmony import */ var _moon_phase_waxing_crescent_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(32);
+/* harmony import */ var _moon_phase_waning_gibbous_png__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(33);
+/* harmony import */ var _moon_phase_waxing_gibbous_png__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(34);
+/* harmony import */ var _moon_phase_black_cat_moon_png__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(35);
 
 
 
@@ -1406,6 +1409,62 @@ const domElements = (() => {
   return { createMainInfoCard };
 })();
 
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (domElements);
+
+
+/***/ }),
+/* 27 */
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "7c2131940a373b31ed90.png";
+
+/***/ }),
+/* 28 */
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "281711ea8b4dfef106af.png";
+
+/***/ }),
+/* 29 */
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "9c18d2ccb4771d2b70e2.png";
+
+/***/ }),
+/* 30 */
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "7e31aef93f2c3046bf08.png";
+
+/***/ }),
+/* 31 */
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "c1ea8abe45947c18856d.png";
+
+/***/ }),
+/* 32 */
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "1262d11a12a169278f91.png";
+
+/***/ }),
+/* 33 */
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "48db87c57d64d234287d.png";
+
+/***/ }),
+/* 34 */
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "621dc8964f1f6beb8efd.png";
+
+/***/ }),
+/* 35 */
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "0594a948d545c645c4a3.png";
 
 /***/ })
 /******/ 	]);
