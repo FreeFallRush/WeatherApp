@@ -110,8 +110,54 @@ const domElements = (() => {
   };
 
   const createForecastInfoCard = (weather) => {
-    const forecastDate = weather.forecast.forecastday[1].date;
-    console.log(forecastDate);
+    const forecastFulldate = weather.forecast.forecastday[1].date;
+    console.log(forecastFulldate);
+    const formattedForecast = format(
+      new Date(forecastFulldate),
+      "EEEE-do MMM yyyy"
+    );
+    console.log(formattedForecast);
+    const [forecastDay, forecastDate] = formattedForecast.split("-");
+    forecastDayText.textContent = forecastDay;
+    forecastDateText.textContent = forecastDate;
+    forecastImg.src = `https://${weather.forecast.forecastday[1].day.condition.icon}`;
+    forecastDesc.textContent =
+      weather.forecast.forecastday[1].day.condition.text;
+    const roundedMinTempC = Math.round(
+      weather.forecast.forecastday[1].day.mintemp_c
+    );
+    const roundedMinTempF = Math.round(
+      weather.forecast.forecastday[1].day.mintemp_f
+    );
+    minTemp.textContent = `Min Temp: ${roundedMinTempC}°C`;
+    const roundedMaxTempC = Math.round(
+      weather.forecast.forecastday[1].day.maxtemp_c
+    );
+    const roundedMaxTempF = Math.round(
+      weather.forecast.forecastday[1].day.maxtemp_f
+    );
+    maxTemp.textContent = `Max Temp: ${roundedMaxTempC}°C`;
+    forecastRain.textContent = `Chance of Rain: ${weather.forecast.forecastday[1].day.daily_chance_of_rain}%`;
+
+    const forecastMoonPhaseText =
+      weather.forecast.forecastday[1].astro.moon_phase;
+    forecastMoonPhase.textContent = forecastMoonPhaseText;
+
+    forecastMoonPhaseImg.src = getMoonPhaseImg(forecastMoonPhaseText);
+    forecastMoonPhaseImg.alt = `moon phase ${forecastMoonPhaseText} icon`;
+
+    sunrise.textContent = `Sunrise: ${weather.forecast.forecastday[1].astro.sunrise}`;
+    sunset.textContent = `Sunset: ${weather.forecast.forecastday[1].astro.sunset}`;
+
+    switchUnitBtn.addEventListener("click", () => {
+      if (switchUnitBtn.checked === true) {
+        minTemp.textContent = `Min Temp: ${roundedMinTempF}°F`;
+        maxTemp.textContent = `Max Temp: ${roundedMaxTempF}°F`;
+      } else if (switchUnitBtn.checked === false) {
+        minTemp.textContent = `Min Temp: ${roundedMinTempC}°C`;
+        maxTemp.textContent = `Max Temp: ${roundedMaxTempC}°C`;
+      }
+    });
   };
   const getMoonPhaseImg = (text) => {
     if (text === "Full Moon") {
