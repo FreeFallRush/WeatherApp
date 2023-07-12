@@ -1023,6 +1023,10 @@ input:checked + .slider:before {
 }
 
 @media all and (max-width: 530px) {
+  .extra-info-card-content {
+    font-size: 0.7rem;
+  }
+
   input[type="text"] {
     box-shadow: var(--tucked-box-shadow);
   }
@@ -1033,9 +1037,6 @@ input:checked + .slider:before {
 }
 
 @media all and (max-width: 330px) {
-  .extra-info-card-content {
-    font-size: 0.7rem;
-  }
   .extra-icon {
     width: 20px;
     height: auto;
