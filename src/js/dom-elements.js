@@ -1,13 +1,13 @@
 import { format } from "date-fns";
-import FullMoon from "../img/moon-phase/full-moon.png";
-import NewMoon from "../img/moon-phase/new-moon.png";
-import FirstQuarter from "../img/moon-phase/first-quarter.png";
-import LastQuarter from "../img/moon-phase/last-quarter.png";
-import WaningCrescent from "../img/moon-phase/waning-crescent.png";
-import WaxingCrescent from "../img/moon-phase/waxing-crescent.png";
-import WaningGibbous from "../img/moon-phase/waning-gibbous.png";
-import WaxingGibbous from "../img/moon-phase/waxing-gibbous.png";
-import BlackCatMoon from "../img/moon-phase/black-cat-moon.png";
+import FullMoon from "../moon-phase/full-moon.png";
+import NewMoon from "../moon-phase/new-moon.png";
+import FirstQuarter from "../moon-phase/first-quarter.png";
+import LastQuarter from "../moon-phase/last-quarter.png";
+import WaningCrescent from "../moon-phase/waning-crescent.png";
+import WaxingCrescent from "../moon-phase/waxing-crescent.png";
+import WaningGibbous from "../moon-phase/waning-gibbous.png";
+import WaxingGibbous from "../moon-phase/waxing-gibbous.png";
+import BlackCatMoon from "../moon-phase/black-cat-moon.png";
 
 const domElements = (() => {
   const currentLocation = document.querySelector(".current-location");
@@ -29,3 +29,5 @@ const domElements = (() => {
 
   return { createMainInfoCard };
 })();
+
+export default domElements;
