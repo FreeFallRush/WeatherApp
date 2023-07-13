@@ -4,7 +4,7 @@ Weather App- The Odin Project Exercise
 
 Project: Weather App - from The Odin Project Curriculum -> Path (https://www.theodinproject.com/lessons/node-path-javascript-weather-app)
 
----> [view project](https://freefallrush.github.io/Weather-App/) <----
+---> [view project](https://freefallrush.github.io/WeatherApp/) <----
 
 The project asks to create a weather forecast site using the weather API from https://www.weatherapi.com/
 
