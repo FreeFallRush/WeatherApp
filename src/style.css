@@ -122,7 +122,6 @@ input[type="text"] {
 }
 
 ::placeholder {
-  /* color: rgb(233, 234, 207); */
   font-family: "PoppinsSemiBold";
   color: rgb(231, 231, 231);
 }
