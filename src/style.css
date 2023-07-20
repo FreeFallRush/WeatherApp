@@ -116,8 +116,15 @@ input[type="text"] {
   box-sizing: border-box;
   border: none;
   outline: none;
+
   background: var(--transparent-bcg);
   box-shadow: var(--input-box-shadow);
+}
+
+::placeholder {
+  /* color: rgb(233, 234, 207); */
+  font-family: "PoppinsSemiBold";
+  color: rgb(231, 231, 231);
 }
 
 input[type="text"]:focus {
@@ -512,8 +519,9 @@ input:checked + .slider:before {
 .last-updated {
   margin-top: 60px;
   text-align: center;
-  font-family: "PoppinsBold";
-  color: rgb(248, 251, 184);
+  font-family: "PoppinsSemiBold";
+  font-size: 0.8rem;
+  color: rgb(231, 231, 231);
   text-shadow: 1px 1px 1px #000, 3px 3px 5px rgba(3, 102, 214, 0.3);
 }
 
